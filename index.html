@@ -14,11 +14,11 @@
     </div>
     <div class="menu" data-state="closed">
         <div class="menu_items_container">
-            <p onclick="'.content'.dataset.state='jobs'">Места работы</p>
-            <p onclick="'.content'.dataset.state='achievements'">Достижения</p>
-            <p onclick="'.content'.dataset.state='education'">Образование</p>
-            <p onclick="'.content'.dataset.state='courses'">Курсы</p>
-            <p onclick="'.content'.dataset.state='personalProjects'">Личные проекты</p>
+            <p onclick="content.dataset.state='jobs'">Места работы</p>
+            <p onclick="content.dataset.state='achievements'">Достижения</p>
+            <p onclick="content.dataset.state='education'">Образование</p>
+            <p onclick="content.dataset.state='courses'">Курсы</p>
+            <p onclick="content.dataset.state='personalProjects'">Личные проекты</p>
         </div>
     </div>
     <div class="content" data-state="main">
@@ -28,6 +28,7 @@
 <script>
     const menuButton = document.querySelector('.menu_button');
     const menu = document.querySelector('.menu');
+    const content = document.querySelector('.content');
     function clickHandle(e) {
         if (menuButton.dataset.state == 'closed') {
             if (e.target.closest('.menu_button')) {
@@ -42,7 +43,7 @@
             }
         }
         menu.dataset.state = menuButton.dataset.state;
-        switch ('.content'.dataset.state) {
+        switch (content.dataset.state) {
             case 'jobs':
                 break;
             case 'achievements':
@@ -56,7 +57,7 @@
             default:
                 break;
         }
-        console.log('.content'.dataset.state);
+        console.log(content.dataset.state);
     }
     document.addEventListener('click', clickHandle);
 </script>
