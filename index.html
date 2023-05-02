@@ -12,15 +12,23 @@
         <div class="upDown"></div>
         <div class="downUp"></div>
     </div>
-    <div class="menu" data-state="closed"></div>
-    <div class="content">
+    <div class="menu" data-state="closed">
+        <div class="menu_items_container">
+            <p onclick="'.content'.dataset.state='jobs'">Места работы</p>
+            <p onclick="'.content'.dataset.state='achievements'">Достижения</p>
+            <p onclick="'.content'.dataset.state='education'">Образование</p>
+            <p onclick="'.content'.dataset.state='courses'">Курсы</p>
+            <p onclick="'.content'.dataset.state='personalProjects'">Личные проекты</p>
+        </div>
+    </div>
+    <div class="content" data-state="main">
         <img src="public/profile_pic.jpg" />
     </div>
 </body>
 <script>
     const menuButton = document.querySelector('.menu_button');
     const menu = document.querySelector('.menu');
-    function toggleMenu(e) {
+    function clickHandle(e) {
         if (menuButton.dataset.state == 'closed') {
             if (e.target.closest('.menu_button')) {
                 menuButton.dataset.state = 'opened';
@@ -34,7 +42,22 @@
             }
         }
         menu.dataset.state = menuButton.dataset.state;
+        switch ('.content'.dataset.state) {
+            case 'jobs':
+                break;
+            case 'achievements':
+                break;
+            case 'education':
+                break;
+            case 'courses':
+                break;
+            case 'personalProjects':
+                break;
+            default:
+                break;
+        }
+        console.log('.content'.dataset.state);
     }
-    document.addEventListener('click', toggleMenu);
+    document.addEventListener('click', clickHandle);
 </script>
 </html>

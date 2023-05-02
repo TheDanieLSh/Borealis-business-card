@@ -69,6 +69,23 @@
   left: 0;
 }
 
+.menu .menu_items_container {
+  position: relative;
+  top: 60px;
+}
+
+.menu p {
+  position: relative;
+  width: 100%;
+  padding: 10px 0 10px 20px;
+  font-size: 40px;
+}
+
+.menu p:hover {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
 .content img {
   position: relative;
   width: 20vw;
