@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Михаил Борейко</title>
+    <link href="styles.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <div class="menu_button" data-state="closed">
+        <div class="upDown"></div>
+        <div class="downUp"></div>
+    </div>
+    <div class="menu" data-state="closed"></div>
+    <div class="content">
+        <img src="public/profile_pic.jpg" />
+    </div>
+</body>
+<script>
+    const menuButton = document.querySelector('.menu_button');
+    const menu = document.querySelector('.menu');
+    function toggleMenu(e) {
+        if (menuButton.dataset.state == 'closed') {
+            if (e.target.closest('.menu_button')) {
+                menuButton.dataset.state = 'opened';
+            }
+        } else if (menuButton.dataset.state == 'opened') {
+            if (!e.target.closest('.menu_button')) {
+                menuButton.dataset.state = 'closed';
+            }
+            if (e.target.closest('.menu_button')) {
+                menuButton.dataset.state = 'closed';
+            }
+        }
+        menu.dataset.state = menuButton.dataset.state;
+    }
+    document.addEventListener('click', toggleMenu);
+</script>
+</html>
